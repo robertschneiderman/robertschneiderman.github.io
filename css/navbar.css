@@ -1,0 +1,16 @@
+.navbar {/* background-color: #bfe3e6; */display: flex;justify-content: space-between;padding: 2rem 7rem;z-index: 9999;position: absolute;width: 100%;}
+
+.navbar-logo {
+
+}
+
+.navbar-nav {list-style: none;display: flex;}
+
+.navbar-item {margin-right: 1rem;}
+
+.nav-link {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+}
