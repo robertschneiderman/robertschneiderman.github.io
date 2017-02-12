@@ -3,6 +3,7 @@
 .c-splash {
     max-width: 1060px;
     display: flex;
+    padding: 7rem 0;
     justify-content: space-between;
 }
 
