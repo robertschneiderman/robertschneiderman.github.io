@@ -4,7 +4,8 @@ import {router, hashHistory} from 'react-router';
 
 let defaultState = {
     question: null,
-    results: [2, 0]
+    results: [2, 0],
+    voters: []
 };
 
 const dashboardReducer = (state = defaultState, action) => {
@@ -19,6 +20,9 @@ const dashboardReducer = (state = defaultState, action) => {
         case 'REMOVE_VOTE':
             newState.results[parseInt(action.payload)] -= 1;
             return newState;                        
+        case 'ADD_RANDOM_VOTER':
+            newState.voters.push(action.payload);
+            return newState;            
         default:
             return state;
     }

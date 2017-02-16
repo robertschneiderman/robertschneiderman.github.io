@@ -5,6 +5,7 @@ import axios from 'axios';
 import * as d3 from 'd3';
 import * as actions from '../actions';
 import D3Wrapper from './d3_wrapper';
+import Voters from './voters';
 
 class Results extends Component {
     constructor(props) {
@@ -31,67 +32,76 @@ class Results extends Component {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    getRandomVoter() {
-        // $.ajax({
-        //     url: 'https://randomuser.me/api/',
-        //     dataType: 'json',
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });        
+    cFL(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }    
 
+    addRandomVoter(vote) {
         axios.get('https://randomuser.me/api/')
-        .success(data => {
-            console.log(data);
+        .then(data => {
+            let result = data.data.results[0];
+            this.props.addRandomVoter({
+                name: `${this.cFL(result.name.first)} ${this.cFL(result.name.last)}`,
+                picture: result.picture.thumbnail,
+                vote
+            });
         });
     }
 
     randomVoting() {
         let count = 10;
         const st = (time, tick) => {
-            setTimeout(() => {
+            setTimeout(tick => {
                 let vote = this.randomNumber(0, 1);
-                this.props.addVote();
-                this.props.addVoter(this.randomNumber(0, 1));
+                // debugger;
+                this.props.addVote(vote);
+                this.addRandomVoter(vote);
                 --tick;
-                debugger;
-                if (tick > 0) {
-                    st(this.randomNumber(2000, 5000), tick);
-                }
+                // debugger;
+                return function() {
+                    if (tick > 0) {
+                        st(this.randomNumber(2000, 5000), tick);
+                    }
+                };
             }, time);
         };
         st(this.randomNumber(2000, 5000), count);
     }
 
     render() {
-        let { results, question } = this.props;
+        let { results, question, voters } = this.props;
                 // <h1>{question}</h1>
         this.randomVoting();
         return(
-            <div className="results">
-                <a onClick={e => this.handleBackClick(e)}>Back</a>
-                <div className="hdg">
-                    <h2 className="hdg--text">Do you approve of the new president?</h2>
-                </div> 
-                <D3Wrapper />
-                <div className="c c-small fb jcsa">
-                    <button className="btn btn-small" onClick={this.handleVote.bind(this, '0')} >Yes</button>
-                    <button className="btn btn-small" onClick={this.handleVote.bind(this, '1')} >No</button>
+            <div className="c c-splash results">
+                <a className="link-abs" onClick={e => this.handleBackClick(e)}>Back</a>
+                <div className="graph">
+                    <div className="hdg">
+                        <h2 className="hdg--text">Do you approve of the new president?</h2>
+                    </div> 
+                    <D3Wrapper />
+                    <div className="c c-small fb jcsa">
+                        <button className="btn btn-small" onClick={this.handleVote.bind(this, '0')} >Yes</button>
+                        <button className="btn btn-small" onClick={this.handleVote.bind(this, '1')} >No</button>
+                    </div>
                 </div>
+                <Voters voters={voters} />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    let {question, results} = state.dashboard;
+    let {question, results, voters} = state.dashboard;
     return {
         question,
-        results
+        results,
+        voters
     };
 };
 
 const mapDispatchToProps = dispatch => ({
+    addRandomVoter: payload => dispatch(actions.addRandomVoter(payload)),
     addVote: payload => dispatch(actions.addVote(payload)),
     removeVote: payload => dispatch(actions.removeVote(payload)),
 });

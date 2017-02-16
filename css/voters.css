@@ -1,0 +1,15 @@
+.voters-wrapper {background: whitesmoke;}
+
+.voters {padding: 0;list-style: none;margin: 0;}
+
+.voter {display: flex;padding: 1rem;margin-bottom: 1rem;}
+
+.voter-img {width: 4rem;height: 4rem;}
+
+.voter-text-wrapper {
+    
+}
+
+.voter-name {margin: 0.5rem 0;}
+
+.voter-vote {margin: 0;}

@@ -3,6 +3,11 @@ export const addQuestion = payload => ({
     payload
 });
 
+export const addRandomVoter = payload => ({
+    type: 'ADD_RANDOM_VOTER',
+    payload
+});
+
 export const addVote = payload => ({
     type: 'ADD_VOTE',
     payload
