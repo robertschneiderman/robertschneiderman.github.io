@@ -13,12 +13,13 @@ class Voters extends Component {
                 return '';
             } else {
                 let style = {};
+                let thumbSrc = (voter.vote) ? 'thumb-up' : 'thumb-down';
                 return (
                     <li className={className} style={style} key={voter.dob}>
                         <img className="voter-img" src={voter.picture} alt=""/>
                         <div className="voter-text-wrapper">
                             <p className="voter-name">{voter.name}</p>
-                            <p className="voter-vote">{voter.vote}</p>
+                            <img className="icon-thumb" src={`./images/${thumbSrc}.svg`} alt=""/>
                         </div>
                     </li>
                 );
