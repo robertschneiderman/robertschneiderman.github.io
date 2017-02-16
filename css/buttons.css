@@ -1,4 +1,4 @@
-.btn {border: 0;color: #fff;border-radius: 4px;}
+.btn {border: 0;color: #fff;border-radius: 4px;outline: 0;}
 
 .btn-primary {
     background-color: #61c091;
@@ -24,8 +24,17 @@
     padding: 1rem;
 }
 
-.btn-yes {background-color: rgba(101, 181, 137, 1);}
+.btn-yes {background-color: rgba(101, 181, 137, .4);}
+
+.btn-yes.selected {
+    background-color: rgba(101, 181, 137, 1);
+}
 
 .btn-no {
-    background-color: #e08195;
+    background-color: rgba(255, 99, 132, 0.4);
 }
+
+.btn-no.selected {
+    background-color: rgba(224, 129, 149, 1);
+}
+
