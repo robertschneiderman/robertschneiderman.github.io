@@ -1,10 +1,10 @@
-.voters-wrapper {background: whitesmoke;}
+.voters-wrapper {}
 
 .voters {padding: 0;list-style: none;margin: 0;}
 
-.voter {display: flex;padding: 1rem;margin-bottom: 1rem;}
+.voter {display: flex;padding: 1rem;margin-bottom: 0.8rem;background: whitesmoke;}
 
-.voter-img {width: 4rem;height: 4rem;}
+.voter-img {width: 4rem;height: 4rem;margin-right: 1rem;}
 
 .voter-text-wrapper {
     

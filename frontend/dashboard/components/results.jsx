@@ -16,6 +16,10 @@ class Results extends Component {
         this.handleVote = this.handleVote.bind(this);
     }
 
+    componentDidMount() {
+        this.randomVoting();        
+    }
+
     handleBackClick() {
         hashHistory.push('dashboard');
     }
@@ -51,18 +55,16 @@ class Results extends Component {
     randomVoting() {
         let count = 10;
         const st = (time, tick) => {
-            setTimeout(tick => {
+            setTimeout(() => {
                 let vote = this.randomNumber(0, 1);
                 // debugger;
                 this.props.addVote(vote);
                 this.addRandomVoter(vote);
-                --tick;
-                // debugger;
-                return function() {
-                    if (tick > 0) {
-                        st(this.randomNumber(2000, 5000), tick);
-                    }
-                };
+                tick -= 1;
+                debugger;
+                if (tick > 0) {
+                    st(this.randomNumber(2000, 5000), tick);
+                }
             }, time);
         };
         st(this.randomNumber(2000, 5000), count);
@@ -71,7 +73,6 @@ class Results extends Component {
     render() {
         let { results, question, voters } = this.props;
                 // <h1>{question}</h1>
-        this.randomVoting();
         return(
             <div className="c c-splash results">
                 <a className="link-abs" onClick={e => this.handleBackClick(e)}>Back</a>
