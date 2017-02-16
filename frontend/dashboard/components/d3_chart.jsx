@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 
 export const d3Chart = {};
 
-const svgWidth = 500;
-const svgHeight = 310;
+const svgWidth = 800;
+const svgHeight = 500;
 
 //set chart margins as % of svg dimensions
 const chartMargin = {
@@ -72,15 +72,23 @@ d3Chart.create = function(htmlElement, props){
   const yCoord = val => yScale(yMax - val - 1).toString();
   const xCoord = idx => xScale(xDomain[idx]).toString();
 
-  const drawBar = (val, idx) => {
+  // this.chart.selectAll('rect').transition().delay(function (d,i){ return i * 600;})
+//  .duration(200);
+ 
+  const drawBar = (val, idx, fill) => {
     this.chart.append('rect').attr('class', 'bar')
     .attr('x', `${xCoord(idx)}`)
     .attr('y', `${yScale(val)}`)
     .attr('width', barWidth)
+    .attr('fill', fill)
     .attr('height', `${yInterval * val}`);
   };
+
   // debugger;
-  props.data.forEach( (value, index) => { drawBar(value, index); } );
+  props.data.forEach( (value, index) => { 
+    let fill = (index === 0) ? 'rgba(101, 181, 137, .4)' : 'rgba(255, 99, 132, 0.4)';
+    drawBar(value, index, fill); 
+  });
 
   //label only some bars
   // //TODO: make this responsive to data length

@@ -1,5 +1,8 @@
 .link-abs {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: -1rem;
+    cursor: pointer;
+    font-weight: 700;
+    color: #aaa;
+    left: -1rem;
 }

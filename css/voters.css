@@ -1,15 +1,19 @@
 .voters-wrapper {}
 
-.voters {padding: 0;list-style: none;margin: 0;}
+.voters {padding: 0;list-style: none;margin: 0;margin-top: auto;height: 33.5rem;bottom: 0;width: 16rem; display: flex; flex-direction: column-reverse}
 
-.voter {display: flex;padding: 1rem;margin-bottom: 0.8rem;background: whitesmoke;}
+.voter {border: 1px solid #dedede;bottom: 0px;border-radius: 3px;display: flex;padding: 1rem;margin-bottom: 0.8rem;width: 100%;background: whitesmoke;;transition: all .3s;}
 
-.voter-img {width: 4rem;height: 4rem;margin-right: 1rem;}
+.voter:first-child {
+    margin: 0;
+}
+
+.voter-img {width: 4rem;height: 4rem;margin-right: 1rem;border-radius: 5px;}
 
 .voter-text-wrapper {
     
 }
 
-.voter-name {margin: 0.5rem 0;}
+.voter-name {margin: 0.5rem 0;font-weight: 700;}
 
 .voter-vote {margin: 0;}

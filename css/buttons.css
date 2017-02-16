@@ -23,3 +23,9 @@
 .btn-small {
     padding: 1rem;
 }
+
+.btn-yes {background-color: rgba(101, 181, 137, 1);}
+
+.btn-no {
+    background-color: #e08195;
+}

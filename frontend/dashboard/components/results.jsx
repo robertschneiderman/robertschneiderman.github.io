@@ -47,6 +47,7 @@ class Results extends Component {
             this.props.addRandomVoter({
                 name: `${this.cFL(result.name.first)} ${this.cFL(result.name.last)}`,
                 picture: result.picture.thumbnail,
+                dob: result.dob,
                 vote
             });
         });
@@ -61,29 +62,28 @@ class Results extends Component {
                 this.props.addVote(vote);
                 this.addRandomVoter(vote);
                 tick -= 1;
-                debugger;
                 if (tick > 0) {
-                    st(this.randomNumber(2000, 5000), tick);
+                    st(this.randomNumber(300, 2000), tick);
                 }
             }, time);
         };
-        st(this.randomNumber(2000, 5000), count);
+        st(this.randomNumber(300, 2000), count);
     }
 
     render() {
         let { results, question, voters } = this.props;
                 // <h1>{question}</h1>
         return(
-            <div className="c c-splash results">
-                <a className="link-abs" onClick={e => this.handleBackClick(e)}>Back</a>
+            <div className="c c-results results">
+                <a className="link-abs" onClick={e => this.handleBackClick(e)}>&lt;Back</a>
                 <div className="graph">
                     <div className="hdg">
                         <h2 className="hdg--text">Do you approve of the new president?</h2>
                     </div> 
                     <D3Wrapper />
                     <div className="c c-small fb jcsa">
-                        <button className="btn btn-small" onClick={this.handleVote.bind(this, '0')} >Yes</button>
-                        <button className="btn btn-small" onClick={this.handleVote.bind(this, '1')} >No</button>
+                        <button className="btn btn-small btn-yes" onClick={this.handleVote.bind(this, '0')} >Yes</button>
+                        <button className="btn btn-small btn-no" onClick={this.handleVote.bind(this, '1')} >No</button>
                     </div>
                 </div>
                 <Voters voters={voters} />

@@ -21,7 +21,7 @@ const dashboardReducer = (state = defaultState, action) => {
             newState.results[parseInt(action.payload)] -= 1;
             return newState;                        
         case 'ADD_RANDOM_VOTER':
-            newState.voters.push(action.payload);
+            newState.voters.unshift(action.payload);
             return newState;            
         default:
             return state;
