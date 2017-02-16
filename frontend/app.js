@@ -1,16 +1,13 @@
 import React from 'react';
-import HeaderMain from './header_main';
+import Navbar from './navbar';
 
 class App extends React.Component {
 
   render() {
-    let style;
-    let {location} = this.props;
-    let pathname = location.pathname;
-    if (pathname === '/signin' || pathname === '/signup') style = {backgroundColor: '#eee'};
+    let style = (this.props.location.pathname === '/') ? {backgroundColor: '#6CB2DD'} : {backgroundColor: '#fbfbfc'};
     return(
-      <div className="appyyyyy">
-        {(pathname !== '/') ? <HeaderMain style={style}/> : ''}
+      <div className="app" style={style}>
+        <Navbar />
         {this.props.children}
       </div>
     );

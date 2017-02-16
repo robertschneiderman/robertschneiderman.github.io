@@ -29,3 +29,5 @@
     margin-top: 0.4rem;
     display: block;
 }
+
+.textarea {width: 80%;display: block;margin: 0 auto;height: 6rem;max-width: 650px;}

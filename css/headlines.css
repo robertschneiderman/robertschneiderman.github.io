@@ -1,8 +1,17 @@
 .hl {
-    margin: 0;    
+    margin: 0;
 }
 
 .hl-wrap {display: flex;width: 92%;margin-bottom: 2rem;}
+
+.hl2-wrap {
+    text-align: center;
+}
+
+.hl2 {
+    color: #666;    
+}
+
 
 .hl-flushed {
     color: #fff;

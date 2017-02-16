@@ -2,8 +2,12 @@
     display: flex;
 }
 
-.jcsp {
+.jcsb {
     justify-content: space-between;
+}
+
+.jcsa {
+    justify-content: space-around;
 }
 
 .aic {

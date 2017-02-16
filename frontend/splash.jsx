@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Header from './header';
 
 import Typist from 'react-typist';
 import PollsSvg from './polls_svg';
@@ -22,7 +21,6 @@ class Splash extends Component {
 
         return(
             <div className="page-home">
-                <Header />    
                 <div className="c c-splash">
                     <div className="c-temp">
                         <div className="hl-wrap">
