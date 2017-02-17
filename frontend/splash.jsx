@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Typist from 'react-typist';
 import {hashHistory} from 'react-router';
-import PollsSvg from './polls_svg';
+// import PollsSvg from './polls_svg';
 
 class Splash extends Component {
     constructor(props) {
@@ -38,10 +38,10 @@ class Splash extends Component {
                     </div>
 
                     <div className="img-wrap">
-                        <PollsSvg />
                     </div>
                 </div>            
             </div>
+                        // <PollsSvg />
         );
                         // <img src="../images/poll.svg" alt="" className="img-large" />
     }
