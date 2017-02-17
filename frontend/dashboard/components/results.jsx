@@ -65,7 +65,7 @@ class Results extends Component {
     }
 
     randomVoting() {
-        let count = 10;
+        let count = 25;
         const st = (time, tick) => {
             setTimeout(() => {
                 let vote = this.randomNumber(0, 1);

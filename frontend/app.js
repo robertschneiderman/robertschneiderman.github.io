@@ -7,7 +7,7 @@ class App extends React.Component {
     let style = (this.props.location.pathname === '/') ? {backgroundColor: '#6CB2DD'} : {backgroundColor: '#fbfbfc'};
     return(
       <div className="app" style={style}>
-        <Navbar />
+        <Navbar pathname={this.props.location.pathname} />
         {this.props.children}
       </div>
     );

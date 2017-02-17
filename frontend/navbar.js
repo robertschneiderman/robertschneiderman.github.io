@@ -5,15 +5,17 @@ import { router, Link } from 'react-router';
 class Navbar extends Component {
 
   renderHeader() {
-    if (window.currentUser) {
+    let {pathname} = this.props;
+    if (pathname !== '/') {
       return [
         <Link to="/" className="navbar-logo">
             <img src="http://res.cloudinary.com/stellar-pixels/image/upload/v1486929017/logo_abrv_lb2yb5.svg" alt="" className="img-logo-abrv"/>        
         </Link>,       
         <ul className="navbar-nav">
           <li className="navbar-item">
-            <Link className="navbar-link dark" to="/dashboard">Dashboard</Link>        
-            <Link className="navbar-link dark" to="/signout">Sign Out</Link>
+            <Link className="navbar-link dark" to="/">
+              {pathname !== '/get-started' ? <img className="icon-logout" src="./images/logout.svg" /> : ''}
+            </Link>
           </li>
         </ul>
       ];
