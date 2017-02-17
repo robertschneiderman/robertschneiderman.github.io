@@ -22,7 +22,7 @@
     margin-bottom: 0.3rem;
 }
 
-.input {width: 100%;border-radius: 5px;border: 1px solid #ddd;padding: 0.6rem;}
+.input {width: 100%;/* border-radius: 5px; */border: 1px solid #ddd;/* padding: 0.6rem; */}
 
 .form-error {
     color: red;
@@ -30,4 +30,8 @@
     display: block;
 }
 
-.textarea {width: 80%;display: block;margin: 0 auto;height: 6rem;max-width: 650px;}
+.textarea {width: 80%;display: block;margin: 0 auto;height: 2.4rem;outline: 0;resize: none;max-width: 650px;border: none;border-radius: 0;background: transparent;border-bottom: 1px solid #ddd;}
+
+.textarea:focus {
+    border-bottom: 1px solid #7dd6ff;
+}

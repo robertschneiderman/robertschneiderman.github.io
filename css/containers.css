@@ -33,3 +33,10 @@
 .dashboard {
     top: 7rem;
 }
+
+.c-btn {
+    margin: 12px auto;
+    width: 90%;
+    max-width: 700px;
+    text-align: right;
+}

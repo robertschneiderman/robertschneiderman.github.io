@@ -97,13 +97,12 @@ class Results extends Component {
 
     render() {
         let { results, question, voters } = this.props;
-                // <h1>{question}</h1>
         return(
             <div className="c c-results results">
                 <a className="link-abs" onClick={e => this.handleBackClick(e)}>&lt;Back</a>
                 <div className="graph">
                     <div className="hdg">
-                        <h2 className="hdg--text">Do you approve of the new president?</h2>
+                        <h2 className="hdg--text">{question}</h2>
                     </div> 
                     <D3Wrapper />
                     <div className="c c-small fb jcsa">
