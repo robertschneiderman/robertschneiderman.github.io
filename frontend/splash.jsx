@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 
 import Typist from 'react-typist';
-// import PollsSvg from './polls_svg';
+import {hashHistory} from 'react-router';
+import PollsSvg from './polls_svg';
 
 class Splash extends Component {
     constructor(props) {
         super(props);
     }
+
+    handleClick() {
+        hashHistory.push('get-started');
+    }
+    
     render() {
 
         // let typistOptions = {
@@ -28,15 +34,15 @@ class Splash extends Component {
                                 Create polls for your people and see what your people say
                             </Typist>
                         </div>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button onClick={this.handleClick} className="btn btn-primary">Get Started</button>
                     </div>
 
                     <div className="img-wrap">
+                        <PollsSvg />
                     </div>
                 </div>            
             </div>
         );
-                        // <PollsSvg />
                         // <img src="../images/poll.svg" alt="" className="img-large" />
     }
 }
